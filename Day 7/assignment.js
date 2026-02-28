@@ -1,46 +1,55 @@
-// template literals
+// task-1
 
-const introduce = (name, city) => {
-  return `Hi, I am ${name} from ${city}`;
+function createProfile(user) {
+  const { name, age, role = "User" } = user;
+
+  return `${name} is ${age} years old and works as ${role}`;
+}
+
+// Example usage
+console.log(createProfile({ name: "Sudhan", age: 22 }));
+
+// task-2
+
+const calculateTotal = (discount, ...prices) => {
+  const total = prices.reduce((sum, price) => sum + price, 0);
+  
+  const finalAmount = total - (total * discount / 100);
+  
+  return finalAmount;
 };
 
-console.log(introduce("Saaran", "Chennai"));
+// Example
+console.log(calculateTotal(10, 100, 200, 300));
 
-// destructuring
+// task-3
 
-const user = {
-  name: "Saaran",
-  age: 22,
-  city: "Chennai"
+const createUser = (key, value) => {
+  return {
+    [key]: value,
+    display() {     
+      console.log(`${key}: ${value}`);
+    }
+  };
 };
 
-const { name, age } = user;
+// Example
+const user = createUser("role", "Admin");
 
-console.log(`${name} is ${age} years old`);
+console.log(user);     // { role: "Admin", display: [Function] }
+user.display();        // role: Admin
 
-// Spread Operator
+// task-4
 
-const arr1 = [1,2,3];
-const arr2 = [4,5,6];
+const users = [
+  { name: "A", marks: 80 },
+  { name: "B" },
+  { name: "C", marks: 60 }
+];
 
-const merged = [...arr1, ...arr2];
+const result = users.map(user => {
+  const marks = user.marks ?? 0;  
+  return `${user.name} scored ${marks}`;
+});
 
-console.log(merged);
-
-// Rest Operator
-
-const sum = (...numbers) => {
-  return numbers.reduce((total, num) => total + num, 0);
-};
-
-console.log(sum(1,2,3,4)); // 10
-
-
-// Default Parameters
-
-const greet = (name = "Guest") => {
-  console.log(`Hello ${name}`);
-};
-
-greet();          // Hello Guest
-greet("Saaran");  // Hello Saaran
+console.log(result);
