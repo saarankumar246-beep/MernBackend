@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All DOM Practice</title>
+</head>
+
+<body>
+
+
+    <h2>Counter Program</h2>
+    <div id="count">0</div>
+    <button onclick="increase()">Increase</button>
+    <button onclick="decrease()">Decrease</button>
+    <button onclick="reset()">Reset</button>
+
+    <hr>
+
+
+    <h2>Add Item to List</h2>
+    <input type="text" id="simpleInput" placeholder="Enter item">
+    <button onclick="addSimpleItem()">Add</button>
+    <ul id="simpleList"></ul>
+
+    <hr>
+
+
+    <h2>Todo List</h2>
+    <input type="text" id="todoInput" placeholder="Enter todo">
+    <button onclick="addTodo()">Add</button>
+    <ul id="todoList"></ul>
+
+    <hr>
+
+    <h2>Simple Form Validation</h2>
+    <form id="myForm">
+        <input type="text" id="username" placeholder="Enter username">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="message"></div>
+
+    <hr>
+
+
+    <h2>Change Background Color</h2>
+    <button onclick="changeColor()">Change Color</button>
+
+    <script>
+
+
+        let count = 0;
+
+        function increase() {
+            count++;
+            document.getElementById("count").textContent = count;
+        }
+
+        function decrease() {
+            count--;
+            document.getElementById("count").textContent = count;
+        }
+
+        function reset() {
+            count = 0;
+            document.getElementById("count").textContent = count;
+        }
+
+
+        function addSimpleItem() {
+            let input = document.getElementById("simpleInput");
+            let value = input.value.trim();
+            if (value === "") return;
+
+            let li = document.createElement("li");
+            li.textContent = value;
+            document.getElementById("simpleList").appendChild(li);
+
+            input.value = "";
+        }
+
+
+        function addTodo() {
+            let input = document.getElementById("todoInput");
+            let value = input.value.trim();
+            if (value === "") return;
+
+            let li = document.createElement("li");
+            li.textContent = value;
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = " Delete";
+            deleteBtn.onclick = function () {
+                li.remove();
+            };
+
+            li.appendChild(deleteBtn);
+            document.getElementById("todoList").appendChild(li);
+
+            input.value = "";
+        }
+
+
+        const form = document.getElementById("myForm");
+        const username = document.getElementById("username");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const value = username.value.trim();
+
+            if (value === "") {
+                message.textContent = "Username cannot be empty!";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Form submitted successfully!";
+                message.style.color = "green";
+            }
+        });
+
+
+        let isChanged = false;
+
+        function changeColor() {
+            if (!isChanged) {
+                document.body.style.backgroundColor = "lightblue";
+                isChanged = true;
+            } else {
+                document.body.style.backgroundColor = "white";
+                isChanged = false;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
