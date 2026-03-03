@@ -1,0 +1,104 @@
+1.What is React?
+
+    React is a JavaScript library used to build fast and interactive user interfaces using components.
+
+2.What is JS and JSX?
+
+js:
+
+    JavaScript is a programming language used to:
+
+    Add functionality to websites
+
+    Handle events
+
+    Manipulate DOM
+
+    Fetch API data
+
+jsx:
+
+    JSX is a syntax used in React that looks like HTML but written inside JavaScript.
+
+3.What is main.jsx? Why we use it?
+
+    In React (Vite project), main.jsx is the entry point file.
+
+    It connects:
+
+        React
+
+        App component
+
+        index.html
+
+4.What is Babel Compiler?
+
+    Babel is a JavaScript compiler.
+
+    It converts:
+
+        JSX ➝ Normal JavaScript
+
+        Modern JS (ES6+) ➝ Older JS (ES5)
+
+        React.createElement("h1", null, "Hello");
+
+
+5.What is Virtual DOM and Real DOM?
+
+Real DOM:
+
+The actual DOM inside the browser.
+
+If we change something:
+    Entire DOM updates
+    Slower performance
+
+Virtual DOM:
+    Virtual DOM is a lightweight copy of Real DOM. React compares and updates only changed parts, making it faster.
+
+6.What is export default and named exports?
+
+export default:
+
+Only one default export per file.
+
+Example:
+
+export default App;
+
+Import:
+
+import App from "./App";
+
+Named Export
+
+You can export multiple items.
+
+Example:
+
+export const name = "Saaran";
+export const age = 22;
+
+Import:
+
+import { name, age } from "./file";
+
+7.How do you import export default?
+
+Example:
+
+File: App.js
+
+export default App;
+
+Import:
+
+import App from "./App";
+
+You can even rename it:
+
+import MyComponent from "./App";
+
+Because it's default export.
