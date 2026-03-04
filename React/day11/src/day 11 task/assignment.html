@@ -1,0 +1,55 @@
+1.What is a Component in React?
+
+    Component is a Reusable JavaScript function that returns JSX (UI).
+    eg:
+        Navbar
+
+        Footer
+
+        Sidebar
+
+        Button
+
+        Card
+
+2.What are the Types of Components?
+
+Functional Component:
+
+It is just a JavaScript function.
+
+function Welcome() {
+  return <h1>Hello User</h1>;
+}
+
+Simple
+Easy
+Uses Hooks
+Mostly used in modern React
+
+Class Components:
+
+It uses ES6 class.
+
+import React, { Component } from "react";
+
+class Welcome extends Component {
+  render() {
+    return <h1>Hello User</h1>;
+  }
+}
+
+3.What is a Fragment Tag in React?
+
+Adjacent JSX elements must be wrapped in one parent element.
+
+Because React components must return only ONE root element.
+
+function Demo() {
+  return (
+    <div>
+      <h1>Hello</h1>
+      <p>Welcome</p>
+    </div>
+  );
+}
