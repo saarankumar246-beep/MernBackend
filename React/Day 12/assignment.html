@@ -1,0 +1,206 @@
+1.What is Class Component in React?
+
+A Class Component is a React component written using a JavaScript class.
+
+It can:
+
+store state (data)
+
+use lifecycle methods
+
+handle logic and UI
+
+import React, { Component } from "react";
+
+class Hello extends Component {
+  render() {
+    return <h1>Hello React</h1>;
+  }
+}
+
+export default Hello;
+
+2.How to Create a Class Component
+
+Steps:
+
+Import React and Component
+
+Create class
+
+Extend Component
+
+Use render() method
+
+Export component
+
+import React, { Component } from "react";
+
+class Welcome extends Component {
+  render() {
+    return <h1>Welcome to React</h1>;
+  }
+}
+
+3.export default Welcome;
+
+What is State?
+
+State = Component's internal data
+
+State can change over time, and when it changes React re-renders the UI.
+
+Example:
+
+state = {
+  count: 0
+};
+
+4.setState() Process
+
+setState() is used to update the state.
+
+When setState() runs:
+
+State updates
+
+React re-renders the component
+
+UI updates automatically
+
+Example:
+
+this.setState({ count: this.state.count + 1 });
+
+Lifecycle Methods
+
+Lifecycle means component life stages.
+
+3 main stages:
+
+1. Mount (Component created)
+
+Methods:
+
+constructor()
+
+render()
+
+componentDidMount()
+
+componentDidMount(){
+  console.log("Component Mounted");
+}
+
+2.Update (State/Props change)
+
+Methods:
+
+shouldComponentUpdate()
+
+componentDidUpdate()
+
+Example:
+
+componentDidUpdate(){
+  console.log("Component Updated");
+}
+
+3.Unmount (Component removed)
+
+Method:
+
+componentWillUnmount(){
+  console.log("Component Removed");
+}
+
+6.Real Example with Button
+import React, { Component } from "react";
+
+class Counter extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      count: 0
+    };
+  }
+
+  increase = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.increase}>Increase</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+
+7.What Happens Without Button?
+
+If there is no button, the state never changes.
+
+Example:
+
+<h1>{this.state.count}</h1>
+
+8.What Happens Without setState()?
+
+If you change state like this:
+
+this.state.count = this.state.count + 1
+
+React will NOT re-render the UI 
+
+So UI will not update.
+
+That is why we must use:
+
+setState()
+
+9.What is constructor() in React Class Component?
+
+constructor() is a special method that runs first when the component is created.
+
+It is used to:
+
+initialize state
+
+bind functions
+
+run initial setup
+
+Example:
+
+constructor(){
+  super();
+  this.state = {
+    count: 0
+  };
+}
+
+10.Why We Use constructor()?
+
+We use constructor() for three main reasons:
+
+1. Initialize State
+
+this.state = {
+  count: 0
+};
+
+2. Bind Event Methods
+
+this.handleClick = this.handleClick.bind(this);
+
+3. Initial Setup
+
+Run code when component starts.
