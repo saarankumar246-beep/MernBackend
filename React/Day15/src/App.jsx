@@ -1,13 +1,17 @@
 import Navbar from "./components/Navbar"
+import VoterApp from "./components/VoterApp"
 import AppRoutes from "./routes/AppRoutes"
 
 
 function App() {
   return (
     <>
-     <Navbar />
+     {/* <Navbar />
 
       <AppRoutes />
+       */}
+
+       <VoterApp />
     </>
       
 
